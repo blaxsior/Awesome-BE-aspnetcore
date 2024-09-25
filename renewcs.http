@@ -1,0 +1,6 @@
+@renewcs_HostAddress = http://localhost:5051
+
+GET {{renewcs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
