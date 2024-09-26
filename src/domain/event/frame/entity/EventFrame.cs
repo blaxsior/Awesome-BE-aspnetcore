@@ -11,19 +11,19 @@ namespace domain.eventframe
   public class EventFrame
   {
     [Column("id")]
-    public uint Id { get; set; } = 0;
+    public long Id { get; set; }
 
     /// <summary>
     /// 이벤트 프레임의 이름
     /// </summary>
     [Column("name", TypeName = "varchar(20)")]
-    public string Name {get; set;} = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// 이벤트 프레임에 대한 설명
     /// </summary>
-    [Column("description", TypeName ="varchar(100)")]
-    public string Description {get; set;} = string.Empty;
+    [Column("description", TypeName = "varchar(100)")]
+    public string Description { get; set; } = string.Empty;
 
     /// <summary>
     /// 연결된 event 목록
