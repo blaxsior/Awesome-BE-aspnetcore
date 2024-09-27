@@ -7,14 +7,11 @@ namespace common.jwt
 {
   public class JwtService : IJwtService
   {
-    private readonly IConfiguration config;
     private readonly JwtSecurityTokenHandler jwtHandler = new JwtSecurityTokenHandler();
     private readonly SigningCredentials credentials;
 
     public JwtService(IConfiguration config)
     {
-      this.config = config;
-
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:SigningKey"]));
       this.credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
     }
@@ -35,7 +32,7 @@ namespace common.jwt
       {
         Subject = new ClaimsIdentity(_claims),
         Expires = expireDate,
-        SigningCredentials = credentials,
+        SigningCredentials = this.credentials,
       };
       var token = jwtHandler.CreateToken(tokenDescriptor);
 

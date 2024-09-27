@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "renewcs", "renewcs\renewcs.csproj", "{A42C1E43-E6EF-4E49-8FCE-1783AED68978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "renewcs.tests", "renewcs.tests\renewcs.tests.csproj", "{3CA0F983-1515-44E1-9DC8-DACBCCC6CBA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A42C1E43-E6EF-4E49-8FCE-1783AED68978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42C1E43-E6EF-4E49-8FCE-1783AED68978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42C1E43-E6EF-4E49-8FCE-1783AED68978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42C1E43-E6EF-4E49-8FCE-1783AED68978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA0F983-1515-44E1-9DC8-DACBCCC6CBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA0F983-1515-44E1-9DC8-DACBCCC6CBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA0F983-1515-44E1-9DC8-DACBCCC6CBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA0F983-1515-44E1-9DC8-DACBCCC6CBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
