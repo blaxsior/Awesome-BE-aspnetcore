@@ -1,4 +1,5 @@
 using common.jwt;
+using Moq;
 
 namespace renewcs.tests;
 
