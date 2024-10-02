@@ -1,5 +1,8 @@
 using common.jwt;
-using domain.eventmetadata.service;
+using domain.eventcommon;
+using domain.eventcommon.component;
+using domain.eventcommon.repository;
+using domain.eventcommon.service;
 
 namespace common.config.inject {
   public class InjectConfig {
@@ -12,6 +15,22 @@ namespace common.config.inject {
 
       // Service
       builder.Services.AddScoped<IEventService, EventService>();
+
+      // EventFieldMappers
+  
+      builder.Services.AddKeyedScoped<IEventFieldMapper, FcfsEventFieldMapper>(EventType.FCFS);
+      builder.Services.AddKeyedScoped<IEventFieldMapper, DrawEventFieldMapper>(EventType.DRAW);
+      builder.Services.AddScoped<Dictionary<EventType, IEventFieldMapper>>(it => {
+        return new Dictionary<EventType, IEventFieldMapper> {
+          { EventType.FCFS, it.GetKeyedService<IEventFieldMapper>(EventType.FCFS)! },
+          { EventType.DRAW, it.GetKeyedService<IEventFieldMapper>(EventType.DRAW)! },
+        };
+      });
+      builder.Services.AddScoped<EventFieldMapperMatcher>();
+
+      // repositories
+      builder.Services.AddScoped<IEventMetadataRepository, EventMetadataRepository>();
+      builder.Services.AddScoped<IEventFrameRepository, EventFrameRepository>();
     }
   }
 }
