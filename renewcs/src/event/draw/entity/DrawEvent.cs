@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using domain.eventmetadata;
+using domain.eventcommon;
 
 namespace domain.drawevent {
   /// <summary>

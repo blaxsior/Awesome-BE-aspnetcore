@@ -1,4 +1,4 @@
-namespace domain.eventmetadata.dto {
+namespace domain.eventcommon.dto {
   /// <summary>
   /// 관리자가 이벤트 댓글 검색 시 자동완성에 제공되는 데이터
   /// </summary>

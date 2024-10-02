@@ -1,4 +1,4 @@
-namespace domain.eventmetadata {
+namespace domain.eventcommon {
   /// <summary>
   /// 현재 존재하는 이벤트 타입을 정의하는 열거형
   /// </summary>

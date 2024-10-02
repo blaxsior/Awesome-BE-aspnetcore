@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using domain.eventframe;
+using domain.eventcommon.dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace domain.eventuser {

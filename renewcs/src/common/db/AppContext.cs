@@ -1,8 +1,8 @@
 using domain.admin;
 using domain.comment;
 using domain.drawevent;
-using domain.eventframe;
-using domain.eventmetadata;
+using domain.eventcommon;
+using domain.eventcommon.dto;
 using domain.eventuser;
 using domain.fcfsevent;
 using domain.shorturl;
