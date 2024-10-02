@@ -1,3 +1,4 @@
+using domain.admin;
 using domain.comment;
 using domain.drawevent;
 using domain.eventframe;
@@ -5,6 +6,7 @@ using domain.eventmetadata;
 using domain.eventuser;
 using domain.fcfsevent;
 using domain.shorturl;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace common.db
@@ -12,7 +14,8 @@ namespace common.db
   /// <summary>
   /// DB Context를 정의하는 클래스
   /// </summary>
-  public class AppDbContext : DbContext
+  public class AppDbContext : IdentityDbContext<AdminUser> 
+  // IdentityDbContext여야 AdminUser을 core identity로 처리 가능
   {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {

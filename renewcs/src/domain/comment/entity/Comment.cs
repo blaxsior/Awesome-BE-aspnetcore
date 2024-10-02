@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using domain.eventframe;
+using domain.eventuser;
 
 namespace domain.comment
 {
@@ -37,5 +38,7 @@ namespace domain.comment
     [ForeignKey("EventUser")]
     [Column("event_user_id")]
     public required long EventUserId { get; set; }
+    public EventUser? EventUser { get; set; }
+
   }
 }
