@@ -696,7 +696,7 @@ namespace renewcs.Migrations
             modelBuilder.Entity("domain.drawevent.DrawEventMetadata", b =>
                 {
                     b.HasOne("domain.drawevent.DrawEvent", "DrawEvent")
-                        .WithMany()
+                        .WithMany("Metadatas")
                         .HasForeignKey("DrawEventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -726,7 +726,7 @@ namespace renewcs.Migrations
             modelBuilder.Entity("domain.drawevent.DrawEventScorePolicy", b =>
                 {
                     b.HasOne("domain.drawevent.DrawEvent", "DrawEvent")
-                        .WithMany()
+                        .WithMany("Policies")
                         .HasForeignKey("DrawEventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -803,6 +803,13 @@ namespace renewcs.Migrations
                     b.Navigation("EventUser");
 
                     b.Navigation("FcfsEvent");
+                });
+
+            modelBuilder.Entity("domain.drawevent.DrawEvent", b =>
+                {
+                    b.Navigation("Metadatas");
+
+                    b.Navigation("Policies");
                 });
 
             modelBuilder.Entity("domain.eventcommon.EventMetadata", b =>

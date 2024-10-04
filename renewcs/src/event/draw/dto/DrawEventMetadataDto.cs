@@ -7,7 +7,7 @@ namespace domain.drawevent.dto
     /// <summary>
     /// 추첨 이벤트에 대한 id
     /// </summary>
-    public long? Id { get; set; }
+    public long? id { get; set; }
 
     /// <summary>
     /// 추첨 이벤트의 등수

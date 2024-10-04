@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using domain.eventcommon;
 
-namespace domain.drawevent {
+namespace domain.drawevent
+{
   /// <summary>
   /// 추첨 이벤트를 의미하는 엔티티
   /// </summary>
-  public class DrawEvent {
+  public class DrawEvent
+  {
     [Column("id")]
     public long Id { get; set; }
 
@@ -20,7 +22,9 @@ namespace domain.drawevent {
     /// </summary>
     [ForeignKey("EventMetadata")]
     [Column("event_metadata_id")]
-    public required long EventMetadataId { get; set; }
+    public long EventMetadataId { get; set; }
     public EventMetadata? EventMetadata { get; set; }
+    public List<DrawEventMetadata> Metadatas { get; set; } = [];
+    public List<DrawEventScorePolicy> Policies { get; set; } = [];
   }
 }

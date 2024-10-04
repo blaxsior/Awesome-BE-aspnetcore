@@ -1,3 +1,5 @@
+using domain.drawevent;
+using domain.drawevent.mapper;
 using domain.eventcommon.dto;
 
 namespace domain.eventcommon.component
@@ -16,7 +18,10 @@ namespace domain.eventcommon.component
 
     public void FillEventField(EventMetadata metadata, EventDto dto)
     {
-      throw new NotImplementedException();
+      if(dto.draw is null) throw new Exception("event must not be null");
+
+      var drawEvent = dto.draw.ToEntity();
+      metadata.DrawEvent = drawEvent;
     }
   }
 }

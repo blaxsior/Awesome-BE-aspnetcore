@@ -59,7 +59,7 @@ namespace domain.eventcommon.service
 
       // 이벤트 타입에 따라 연관된 필드 채우기.
       var mapper = matcher.GetMapper(eventDto.eventType);
-      // mapper.FillEventField(metadata, eventDto);
+      mapper.FillEventField(metadata, eventDto);
 
       await emRepository.CreateAsync(metadata);
     }

@@ -12,7 +12,7 @@ namespace domain.eventcommon.component
 
     public IEventFieldMapper GetMapper(EventType eventType) {
       var mapper = mappers[eventType];
-      if (mapper == null) throw new Exception($"cannot find mapper type for {eventType}");
+      if (mapper is null) throw new Exception($"cannot find mapper type for {eventType}");
       return mapper;
     }
   }

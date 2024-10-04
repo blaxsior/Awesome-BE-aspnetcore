@@ -27,7 +27,7 @@ namespace domain.drawevent
     /// </summary>
     [ForeignKey("DrawEvent")]
     [Column("draw_event_id")]
-    public required long DrawEventId { get; set; }
+    public long DrawEventId { get; set; }
     public DrawEvent? DrawEvent { get; set; }
   }
 }

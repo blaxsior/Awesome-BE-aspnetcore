@@ -1,4 +1,5 @@
 using domain.eventcommon.dto;
+using domain.fcfsevent.mapper;
 
 namespace domain.eventcommon.component
 {
@@ -16,7 +17,10 @@ namespace domain.eventcommon.component
 
     public void FillEventField(EventMetadata metadata, EventDto dto)
     {
-      throw new NotImplementedException();
+      if (dto.fcfs is null) throw new Exception("event must not be null");
+      
+      var fcfsEvents = dto.fcfs.Select(it => it.ToEntity()).ToList();
+      metadata.FcfsEvents = fcfsEvents;
     }
   }
 }
