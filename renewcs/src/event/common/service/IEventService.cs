@@ -13,7 +13,7 @@ namespace domain.eventcommon.service
     /// <param name="page">검색할 페이지</param>
     /// <param name="size">검색하는 페이지의 크기</param>
     /// <returns></returns>
-    Task<List<BriefEventDto>> SearchEvents(string search, string sort, EventType type, int page, int size);
+    Task<List<BriefEventDto>> SearchEvents(string search, string sort, EventType? type, int page, int size);
 
     /// <summary>
     /// 이벤트를 생성한다.

@@ -17,28 +17,37 @@ namespace domain.eventcommon.service
       IEventMetadataRepository emRepository,
       IEventFrameRepository efRepository,
       EventFieldMapperMatcher matcher
-      ) {
+      )
+    {
       this.emRepository = emRepository;
       this.efRepository = efRepository;
       this.matcher = matcher;
     }
-    public Task<List<BriefEventDto>> SearchEvents(string search, string sort, EventType type, int page, int size)
+    public Task<List<BriefEventDto>> SearchEvents(string search, string sort, EventType? type, int page, int size)
     {
       // 쿼리를 key = ASC / DESC 형식으로 파싱
       var sortDict = QueryParser.Parse(sort);
-      return emRepository.FindManyBriefsAsync(search, sortDict, type, page, size);  
+      return emRepository.FindManyBriefsAsync(search, sortDict, type, page, size);
     }
     public async Task CreateEvent(EventDto eventDto)
     {
       // 이벤트 프레임 없으면 바로 생성.
       var eventframe = await efRepository.FindByFrameIdAsync(eventDto.frameId);
-      if(eventframe == null) eventframe = new EventFrame {
+      if (eventframe == null) eventframe = new EventFrame
+      {
         FrameId = eventDto.frameId,
         Name = eventDto.frameId
       };
 
+      // 이벤트 키 생성
+      const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var key = new string(Enumerable.Repeat(chars, 12)
+          .Select(s => s[new Random().Next(s.Length)]).ToArray());
+
       // 이벤트 메타데이터 생성
-      EventMetadata metadata = new EventMetadata {
+      EventMetadata metadata = new EventMetadata
+      {
+        EventId = key,
         EventFrame = eventframe,
         Name = eventDto.name,
         Description = eventDto.description,
@@ -50,7 +59,7 @@ namespace domain.eventcommon.service
 
       // 이벤트 타입에 따라 연관된 필드 채우기.
       var mapper = matcher.GetMapper(eventDto.eventType);
-      mapper.FillEventField(metadata, eventDto);
+      // mapper.FillEventField(metadata, eventDto);
 
       await emRepository.CreateAsync(metadata);
     }

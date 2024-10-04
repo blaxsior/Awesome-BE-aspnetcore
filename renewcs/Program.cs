@@ -9,6 +9,7 @@ using System.Text;
 using domain.admin;
 using Microsoft.AspNetCore.Identity;
 using common.config.inject;
+using System.Text.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,11 @@ var config = builder.Configuration;
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+.AddJsonOptions(options => {
+    var enumStrConverter = new JsonStringEnumConverter();
+    options.JsonSerializerOptions.Converters.Add(enumStrConverter);
+});
 
 // swagger 설정
 builder.Services.AddEndpointsApiExplorer();
