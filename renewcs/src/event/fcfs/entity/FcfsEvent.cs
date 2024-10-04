@@ -30,6 +30,12 @@ namespace domain.fcfsevent
     public DateTime EndTime { get; set; }
 
     /// <summary>
+    /// 현재 등수에 대한 상품 정보
+    /// </summary>
+    [Column("prize_info")]
+    public string PrizeInfo { get; set; } = string.Empty;
+
+    /// <summary>
     /// 이벤트 메타데이터 id 값
     /// </summary>
     [ForeignKey("EventMetadata")]

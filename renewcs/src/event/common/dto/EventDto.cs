@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using domain.drawevent.dto;
+using domain.fcfsevent.dto;
 
 namespace domain.eventcommon.dto
 {
@@ -46,5 +48,15 @@ namespace domain.eventcommon.dto
     /// </summary>
     [Required]
     public required string frameId { get; set; }
+
+    /// <summary>
+    /// 선착순 이벤트 데이터
+    /// </summary>
+    public List<FcfsEventDto>? fcfs {get; set;}
+
+    /// <summary>
+    /// 추첨 이벤트 데이터
+    /// </summary>
+    public DrawEventDto? draw {get; set;}
   }
 }

@@ -18,12 +18,12 @@ namespace common.config.inject {
 
       // EventFieldMappers
   
-      builder.Services.AddKeyedScoped<IEventFieldMapper, FcfsEventFieldMapper>(EventType.FCFS);
-      builder.Services.AddKeyedScoped<IEventFieldMapper, DrawEventFieldMapper>(EventType.DRAW);
+      builder.Services.AddKeyedScoped<IEventFieldMapper, FcfsEventFieldMapper>(EventType.fcfs);
+      builder.Services.AddKeyedScoped<IEventFieldMapper, DrawEventFieldMapper>(EventType.draw);
       builder.Services.AddScoped<Dictionary<EventType, IEventFieldMapper>>(it => {
         return new Dictionary<EventType, IEventFieldMapper> {
-          { EventType.FCFS, it.GetKeyedService<IEventFieldMapper>(EventType.FCFS)! },
-          { EventType.DRAW, it.GetKeyedService<IEventFieldMapper>(EventType.DRAW)! },
+          { EventType.fcfs, it.GetKeyedService<IEventFieldMapper>(EventType.fcfs)! },
+          { EventType.draw, it.GetKeyedService<IEventFieldMapper>(EventType.draw)! },
         };
       });
       builder.Services.AddScoped<EventFieldMapperMatcher>();
