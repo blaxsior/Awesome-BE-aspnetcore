@@ -1,4 +1,5 @@
 using domain.drawevent;
+using domain.drawevent.dto;
 using domain.drawevent.mapper;
 using domain.eventcommon.dto;
 
@@ -13,7 +14,10 @@ namespace domain.eventcommon.component
 
     public void FillEventDto(EventMetadata metadata, EventDto dto)
     {
-      throw new NotImplementedException();
+      DrawEvent? drawEvent = metadata.DrawEvent;
+      if(drawEvent is null) throw new Exception("cannot find draw event");
+
+      dto.draw = drawEvent.ToDto();
     }
 
     public void FillEventField(EventMetadata metadata, EventDto dto)

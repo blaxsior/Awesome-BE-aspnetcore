@@ -14,7 +14,7 @@ namespace domain.drawevent
     /// 액션
     /// </summary>
     [Column("action", TypeName = "varchar(20)")]
-    public DrawEventAction Action { get; set; }
+    public virtual DrawEventAction Action { get; set; }
 
     /// <summary>
     /// 점수
@@ -28,6 +28,6 @@ namespace domain.drawevent
     [ForeignKey("DrawEvent")]
     [Column("draw_event_id")]
     public long DrawEventId { get; set; }
-    public DrawEvent? DrawEvent { get; set; }
+    public virtual DrawEvent? DrawEvent { get; set; }
   }
 }

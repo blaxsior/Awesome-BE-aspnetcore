@@ -35,6 +35,6 @@ namespace domain.drawevent
     [ForeignKey("DrawEvent")]
     [Column("draw_event_id")]
     public long DrawEventId { get; set; }
-    public DrawEvent? DrawEvent { get; set; }
+    public virtual DrawEvent? DrawEvent { get; set; }
   }
 }

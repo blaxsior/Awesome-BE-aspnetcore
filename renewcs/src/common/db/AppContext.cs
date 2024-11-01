@@ -14,11 +14,18 @@ namespace common.db
   /// <summary>
   /// DB Context를 정의하는 클래스
   /// </summary>
-  public class AppDbContext : IdentityDbContext<AdminUser> 
+  public class AppDbContext : IdentityDbContext<AdminUser>
   // IdentityDbContext여야 AdminUser을 core identity로 처리 가능
   {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+      // https://learn.microsoft.com/ko-kr/ef/core/querying/related-data/lazy
+      // for lazy loading
+      optionsBuilder.UseLazyLoadingProxies();
     }
 
     /* 이벤트 공통 */
@@ -40,7 +47,7 @@ namespace common.db
     public DbSet<EventUser> EventUsers { get; set; }
 
     /* 댓글 */
-    public DbSet<Comment> Comments{ get; set; }
+    public DbSet<Comment> Comments { get; set; }
 
     /* 단축 URL */
     public DbSet<ShortUrl> ShortUrls { get; set; }

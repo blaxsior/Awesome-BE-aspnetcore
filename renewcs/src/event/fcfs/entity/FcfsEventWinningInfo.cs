@@ -24,7 +24,7 @@ namespace domain.fcfsevent
     [ForeignKey("EventUser")]
     [Column("event_user_id")]
     public required long EventUserId { get; set; }
-    public EventUser? EventUser { get; set; }
+    public virtual EventUser? EventUser { get; set; }
 
     /// <summary>
     /// 선착순 이벤트의 id
@@ -32,6 +32,6 @@ namespace domain.fcfsevent
     [ForeignKey("FcfsEvent")]
     [Column("fcfs_event_id")]
     public required long FcfsEventId { get; set; }
-    public FcfsEvent? FcfsEvent { get; set; }
+    public virtual FcfsEvent? FcfsEvent { get; set; }
   }
 }

@@ -1,4 +1,5 @@
 using domain.eventcommon.dto;
+using domain.fcfsevent;
 using domain.fcfsevent.mapper;
 
 namespace domain.eventcommon.component
@@ -12,7 +13,10 @@ namespace domain.eventcommon.component
 
     public void FillEventDto(EventMetadata metadata, EventDto dto)
     {
-      throw new NotImplementedException();
+      List<FcfsEvent>? fcfsEvents = metadata.FcfsEvents;
+      if(fcfsEvents is null) throw new Exception("cannot find fcfs event");
+
+      dto.fcfs = fcfsEvents.Select(it => it.ToDto()).ToList();
     }
 
     public void FillEventField(EventMetadata metadata, EventDto dto)

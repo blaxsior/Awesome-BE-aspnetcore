@@ -1,5 +1,6 @@
 using domain.eventcommon.component;
 using domain.eventcommon.dto;
+using domain.eventcommon.mapper;
 using domain.eventcommon.repository;
 using util;
 
@@ -68,9 +69,18 @@ namespace domain.eventcommon.service
       throw new NotImplementedException();
     }
 
-    public Task<EventDto> GetEventInfo(string eventId)
+    public async Task<EventDto?> GetEventInfo(string eventId)
     {
-      throw new NotImplementedException();
+      var metadata = await emRepository.FindByEventIdWithFrameAsync(eventId);
+      // TODO: 예외처리 방법 찾기. 404
+      if(metadata == null) throw new Exception("이벤트를 찾을 수 없습니다");
+
+      var dto =  metadata.ToDto();
+
+      var mapper = matcher.GetMapper(dto.eventType);
+      mapper.FillEventDto(metadata, dto);
+
+      return dto;
     }
 
     public Task DeleteEvent(string eventId)

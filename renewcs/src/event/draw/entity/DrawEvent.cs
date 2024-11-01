@@ -23,8 +23,8 @@ namespace domain.drawevent
     [ForeignKey("EventMetadata")]
     [Column("event_metadata_id")]
     public long EventMetadataId { get; set; }
-    public EventMetadata? EventMetadata { get; set; }
-    public List<DrawEventMetadata> Metadatas { get; set; } = [];
-    public List<DrawEventScorePolicy> Policies { get; set; } = [];
+    public virtual EventMetadata? EventMetadata { get; set; }
+    public virtual List<DrawEventMetadata> Metadatas { get; set; } = [];
+    public virtual List<DrawEventScorePolicy> Policies { get; set; } = [];
   }
 }

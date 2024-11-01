@@ -23,7 +23,7 @@ namespace domain.drawevent
     [ForeignKey("DrawEvent")]
     [Column("draw_event_id")]
     public required long DrawEventId { get; set; }
-    public DrawEvent? DrawEvent { get; set; }
+    public virtual DrawEvent? DrawEvent { get; set; }
 
     /// <summary>
     /// 이벤트 유저의 id
@@ -31,6 +31,6 @@ namespace domain.drawevent
     [ForeignKey("EventUser")]
     [Column("event_user_id")]
     public required long EventUserId { get; set; }
-    public EventUser? EventUser { get; set; }
+    public virtual EventUser? EventUser { get; set; }
   }
 }

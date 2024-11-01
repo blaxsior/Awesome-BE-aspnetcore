@@ -31,7 +31,7 @@ namespace domain.eventcommon.service
     /// </summary>
     /// <param name="eventId">이벤트의 ID</param>
     /// <returns>이벤트 관리에 사용되는 객체 </returns>
-    Task<EventDto> GetEventInfo(string eventId);
+    Task<EventDto?> GetEventInfo(string eventId);
 
     /// <summary>
     /// 이벤트를 제거한다.

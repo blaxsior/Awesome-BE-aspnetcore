@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using domain.eventcommon.dto;
+using domain.eventcommon;
 using domain.eventuser;
 
 namespace domain.comment
@@ -30,7 +30,7 @@ namespace domain.comment
     [ForeignKey("EventFrame")]
     [Column("event_frame_id")]
     public required long EventFrameId { get; set; }
-    public EventFrame? EventFrame { get; set; }
+    public virtual EventFrame? EventFrame { get; set; }
 
     /// <summary>
     /// 댓글을 작성한 이벤트 유저의 id
@@ -38,7 +38,7 @@ namespace domain.comment
     [ForeignKey("EventUser")]
     [Column("event_user_id")]
     public required long EventUserId { get; set; }
-    public EventUser? EventUser { get; set; }
+    public virtual EventUser? EventUser { get; set; }
 
   }
 }

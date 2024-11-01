@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using domain.drawevent;
-using domain.eventcommon.dto;
 using domain.fcfsevent;
 using Microsoft.EntityFrameworkCore;
 
@@ -66,11 +65,11 @@ namespace domain.eventcommon
     /// <summary>
     /// 현재 이벤트와 연관된 이벤트 프레임
     /// </summary>
-    public EventFrame? EventFrame { get; set; }
+    public virtual EventFrame? EventFrame { get; set; }
 
-    /* 연관 이벤트 정의*/
+    /* 연관 이벤트 정의. virtual for lazy loading */
 
-    public List<FcfsEvent>? FcfsEvents { get; set; }
-    public DrawEvent? DrawEvent { get; set; }
+    public virtual List<FcfsEvent>? FcfsEvents { get; set; }
+    public virtual DrawEvent? DrawEvent { get; set; }
   }
 }

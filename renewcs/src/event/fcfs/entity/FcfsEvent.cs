@@ -41,6 +41,6 @@ namespace domain.fcfsevent
     [ForeignKey("EventMetadata")]
     [Column("event_metadata_id")]
     public long EventMetadataId { get; set; }
-    public EventMetadata? EventMetadata { get; set; }
+    public virtual EventMetadata? EventMetadata { get; set; }
   }
 }

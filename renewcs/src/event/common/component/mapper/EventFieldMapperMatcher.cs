@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace domain.eventcommon.component
 {
   public class EventFieldMapperMatcher

@@ -50,6 +50,15 @@ namespace domain.eventcommon.repository
       return projection.ToListAsync();
     }
 
+    public async Task<EventMetadata?> FindByEventIdWithFrameAsync(string eventId)
+    {
+      var item = await dbContext.EventMetadatas
+      .Where(it => it.EventId == eventId)
+      .Include(it => it.EventFrame)
+      .FirstOrDefaultAsync();
+      return item;
+    }
+
     public async Task<EventMetadata> CreateAsync(EventMetadata eventMetadata)
     {
       await dbContext.EventMetadatas.AddAsync(eventMetadata);

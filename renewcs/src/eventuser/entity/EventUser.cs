@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using domain.eventcommon.dto;
+using domain.eventcommon;
 using Microsoft.EntityFrameworkCore;
 
 namespace domain.eventuser {
@@ -35,6 +35,6 @@ namespace domain.eventuser {
     [ForeignKey("EventFrame")]
     [Column("event_frame_id")]
     public required long EventFrameId {get; set;}
-    public EventFrame? EventFrame {get; set;}
+    public virtual EventFrame? EventFrame {get; set;}
   }
 }

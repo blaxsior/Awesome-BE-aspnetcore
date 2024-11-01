@@ -1,8 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using domain.eventcommon;
 using Microsoft.EntityFrameworkCore;
 
-namespace domain.eventcommon.dto
+namespace domain.eventcommon
 {
   /// <summary>
   /// 이벤트 타입이 공유하는 정보
@@ -28,6 +27,6 @@ namespace domain.eventcommon.dto
     /// <summary>
     /// 연결된 event 목록
     /// </summary>
-    public IEnumerable<EventMetadata>? EventMetadata { get; set; }
+    public virtual IEnumerable<EventMetadata>? EventMetadata { get; set; }
   }
 }
